@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DESMOS</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235865f2'/%3E%3Ctext x='32' y='40' font-size='36' font-weight='bold' fill='white' text-anchor='middle'%3EYP%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- DESMOS SCREEN -->
+    <div id="desmos-screen" class="screen">
+      <div class="desmos-header">
+        <div class="brand-wrap">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="mark-sun"></span>
+            <span class="mark-curve"></span>
+          </div>
+          <span class="brand-name">DESMOS</span>
+        </div>
+      </div>
+
+      <div class="desmos-canvas" aria-hidden="true">
+        <div class="graph-grid"></div>
+        <div class="graph-axes"></div>
+        <div class="function function-one"></div>
+        <div class="function function-two"></div>
+        <div class="function function-three"></div>
+      </div>
+
+      <div class="entry-prompt">
+        <p class="entry-label">Type the code to enter</p>
+        <div class="typed-box" id="typed-box">
+          <span>_</span>
+          <span>_</span>
+          <span>_</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen" class="screen hidden">
+      <div class="loading-wrap">
+        <div class="loading-logo">YAP</div>
+        <div class="loading-title">LOADING</div>
+        <div class="loading-bar">
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAME MODAL -->
+    <div id="name-modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <p class="eyebrow">WELCOME</p>
+        <h2>Choose display name</h2>
+        <form id="name-form">
+          <input
+            id="display-name"
+            type="text"
+            maxlength="20"
+            placeholder="Type your name..."
+            autocomplete="off"
+          />
+          <button type="submit">Enter Yap</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="app-shell" class="app-shell hidden">
+      <!-- Server Sidebar -->
+      <aside class="server-bar" aria-label="Server navigation">
+        <div class="server-icon active" data-channel="math" title="YAP">Y</div>
+        <div class="server-icon" data-channel="science" title="SCIENCE">S</div>
+        <div class="server-icon" data-channel="socialStudies" title="SOCIAL STUDIES">SS</div>
+        <div class="server-icon" data-channel="ela" title="ELA">E</div>
+        <div class="server-icon" data-channel="justChat" title="JUST CHAT">J</div>
+        <div class="server-icon" data-channel="gameWebsites" title="GAME WEBSITES">G</div>
+      </aside>
+
+      <!-- Channel Sidebar -->
+      <aside class="sidebar">
+        <div class="server-name">YAP</div>
+        <div class="channel-header">CHANNELS</div>
+        <div id="channel-list" class="channel-list"></div>
+      </aside>
+
+      <!-- Chat Panel -->
+      <main class="chat-panel">
+        <header class="chat-header">
+          <div class="chat-title-wrap">
+            <span class="hash">#</span>
+            <h1 id="channel-name">MATH</h1>
+          </div>
+          <div class="online-pill">online</div>
+        </header>
+
+        <section id="message-list" class="message-list" aria-live="polite"></section>
+
+        <form id="chat-form" class="composer">
+          <input
+            id="message-input"
+            type="text"
+            maxlength="280"
+            placeholder="Type a message..."
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
